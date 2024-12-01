@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <Button
-        variant="cyanToBlue"
+        variant="paymentwithVisa"
         icon={<FacebookIcon />}
         onClick={() => console.log('Facebook Cyan-to-Blue button clicked!')}
       >
