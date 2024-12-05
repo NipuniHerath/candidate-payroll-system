@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import InputField from './components/Shared/Input';
 
-  >
 
 
 // const FacebookIcon = () => (
