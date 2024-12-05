@@ -25,7 +25,7 @@ const App = () => {
     <div className="flex items-center justify-center min-h-screen bg-white">
     
       <InputField
-        type="text"
+        type="password"
         name="Name"
         label="Full Name"
   
