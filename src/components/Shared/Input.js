@@ -12,15 +12,23 @@ const InputField = ({
   disabled = false,
   icon = null,
   rightIcon = null,
-  variant = 'default', // default, textarea
-  rows = 4, // Used for textarea
+  variant = 'default', // default, textarea, phone, email, password
+  rows = 4, // For textarea
+  pattern, // For validation-based inputs
+  required = false, // To make the field required
   ...props
 }) => {
+  // Common styles
   const baseStyles = `w-full p-2 mb-6 text-indigo-700 border-b-2 border-[#94a3b8] outline-none focus:bg-gray-300`;
   const errorStyles = `border-red-500 focus:ring-red-200`;
   const defaultStyles = `border-gray-300 focus:ring-blue-300`;
 
-  const textareaStyles = "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+  // Variant-specific styles
+  const sharedStyles = `bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`;
+  const textareaStyles = `w-full rounded-lg border-gray-200 p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300`;
+  const phoneStyles = sharedStyles;
+  const emailStyles = sharedStyles;
+  const passwordStyles = sharedStyles;
 
   return (
     <div className={`mb-4 ${className}`}>
@@ -31,11 +39,9 @@ const InputField = ({
       )}
       {variant === 'textarea' ? (
         <div>
-          {label && (
-            <label className="sr-only" htmlFor={name}>
-              {label}
-            </label>
-          )}
+          <label className="sr-only" htmlFor={name}>
+            {label}
+          </label>
           <textarea
             name={name}
             id={name}
@@ -58,15 +64,21 @@ const InputField = ({
             </span>
           )}
           <input
-            type={type}
+            type={variant === 'phone' ? 'tel' : variant}
             name={name}
             id={name}
             value={value}
             onChange={onChange}
             placeholder={placeholder}
-            className={`${baseStyles} ${
-              error ? errorStyles : defaultStyles
-            } ${icon ? 'pl-10' : ''} ${rightIcon ? 'pr-10' : ''}`}
+            className={`${variant === 'phone' ? phoneStyles : ''} ${
+              variant === 'email' ? emailStyles : ''
+            } ${variant === 'password' ? passwordStyles : ''} ${
+              variant === 'default' ? baseStyles : ''
+            } ${error ? errorStyles : ''} ${icon ? 'pl-10' : ''} ${
+              rightIcon ? 'pr-10' : ''
+            }`}
+            pattern={variant === 'phone' ? pattern : undefined}
+            required={required}
             disabled={disabled}
             aria-invalid={!!error}
             aria-describedby={error ? `${name}-error` : undefined}
