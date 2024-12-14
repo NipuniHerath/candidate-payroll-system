@@ -34,9 +34,9 @@ const App = () => {
     <div className="">
     
   
- <RegisterPage/>
+ {/* <RegisterPage/> */}
  {/* <LoginPage/> */}
- {/* <LoginPage2/> */}
+ <LoginPage2/>
 {/*    
  <RegisterPage2/> */}
      </div>

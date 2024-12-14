@@ -9,15 +9,15 @@ const LoginPage2 = () => {
 
      
 <div>
-<div class="font-[sans-serif] bg-gray-900 md:h-screen">
+<div class="font-[sans-serif] bg-gray-200  md:h-screen">
       <div class="grid md:grid-cols-2 items-center gap-8 h-full">
         <div class="max-md:order-1 p-4">
           <img src={LoginImg4} class="lg:max-w-[90%] w-full h-full object-contain block mx-auto" alt="login-image" />
         </div>
 
-        <div class="flex items-center md:p-8 p-6 bg-gray-100 md:rounded-tl-[55px] md:rounded-bl-[55px] h-full">
+        <div class="flex items-center md:p-8 p-6  bg-gray-900 md:rounded-tl-[55px] md:rounded-bl-[55px] h-full">
           <form class="max-w-lg w-full mx-auto">
-            <div class="mb-12">
+            <div class="mb-16">
               <h3 class="text-gray-800 text-4xl font-extrabold">Sign in</h3>
               <p class="text-gray-800 text-sm mt-4 ">Don't have an account <a href="javascript:void(0);" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
             </div>
