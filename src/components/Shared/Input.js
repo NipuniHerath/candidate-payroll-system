@@ -19,7 +19,7 @@ const InputField = ({
   ...props
 }) => {
   // Common styles
-  const baseStyles = `w-full p-2 mb-6 text-indigo-700 border-b-2 border-[#94a3b8] outline-none focus:bg-gray-300`;
+  const baseStyles = `w-full p-2 mb-6 text-indigo-700 border-b-2 border-[#94a3b8] outline-none `;
   const errorStyles = `border-red-500 focus:ring-red-200`;
   const defaultStyles = `border-gray-300 focus:ring-blue-300`;
 
